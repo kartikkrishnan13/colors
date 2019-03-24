@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+  	<link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Kurale|Laila|Montserrat|Permanent+Marker" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script type="text/javascript" src="http://chir.ag/projects/ntc/ntc.js"></script>
+    <script src="scripts.js"></script>
+  </head>
+  <body ng-app="myApp" ng-controller="myCtrl" ng-style="colors">
+    <div class="container1">
+      <span class="highlight">#COLORS</span>
+    </div>
+    <div class="container2">
+      <div>
+        <span class="highlight2">RED:</span> <input type="number" ng-model="red" min="0" max="255">
+      </div>
+      <div>
+        <span class="highlight2">GREEN:</span> <input type="number" ng-model="green" min="0" max="255">
+      </div>
+      <div>
+        <span class="highlight2">BLUE:</span> <input type="number" ng-model="blue" min="0" max="255">
+      </div>
+    </div>
+    <div class="container3">
+      <input type="range" ng-model="red" min="0" max="255" class="slider"><br>
+      <input type="range" ng-model="green" min="0" max="255" class="slider"><br>
+      <input type="range" ng-model="blue" min="0" max="255" class="slider"><br>
+    </div>
+    <div class="container4">
+      <span class="highlight3">{{color}}</span>
+    </div>
+    <div class="container5">
+      <div ng-show="exact">
+        <span class="highlight4">Color Name: {{colorName}}</span>
+      </div>
+      <div ng-hide="exact">
+        <span class="highlight5">Closest Color: {{nearestColor}}</span>
+      </div>
+    </div>
+  </body>
+</html>
