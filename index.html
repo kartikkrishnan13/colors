@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Page Title</title>
+    <title>#Colors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css?family=Kurale|Laila|Montserrat|Permanent+Marker" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
-    <script type="text/javascript" src="ntc.js"></script>
+    <script src="angular.min.js"></script>
+    <script src="ntc.js"></script>
     <script src="scripts.js"></script>
   </head>
   <body ng-app="myApp" ng-controller="myCtrl" ng-style="colors">
@@ -14,19 +15,19 @@
     </div>
     <div class="container2">
       <div>
-        <span class="highlight2">RED:</span> <input type="number" ng-model="red" min="0" max="255">
+        <span class="highlight2">RED:</span> <button type="button" ng-click="red=red-1">-</button> <input type="number" ng-model="red" min="0" max="255"> <button type="button" ng-click="red=red+1">+</button>
       </div>
       <div>
-        <span class="highlight2">GREEN:</span> <input type="number" ng-model="green" min="0" max="255">
+        <span class="highlight2">GREEN:</span> <button type="button" ng-click="green=green-1">-</button> <input type="number" ng-model="green" min="0" max="255"> <button type="button" ng-click="green=green+1">+</button>
       </div>
       <div>
-        <span class="highlight2">BLUE:</span> <input type="number" ng-model="blue" min="0" max="255">
+        <span class="highlight2">BLUE:</span> <button type="button" ng-click="blue=blue-1">-</button> <input type="number" ng-model="blue" min="0" max="255"> <button type="button" ng-click="blue=blue+1">+</button>
       </div>
     </div>
     <div class="container3">
-      <input type="range" ng-model="red" min="0" max="255" class="slider"><br>
-      <input type="range" ng-model="green" min="0" max="255" class="slider"><br>
-      <input type="range" ng-model="blue" min="0" max="255" class="slider"><br>
+      <input type="range" ng-model="red" min="0" max="255" class="slider redB"><br>
+      <input type="range" ng-model="green" min="0" max="255" class="slider greenB"><br>
+      <input type="range" ng-model="blue" min="0" max="255" class="slider blueB"><br>
     </div>
     <div class="container4">
       <span class="highlight3">{{color}}</span>
@@ -35,9 +36,12 @@
       <div ng-show="exact">
         <span class="highlight4">Color Name: {{colorName}}</span>
       </div>
-      <div ng-hide="exact">
+      <div class="divButton" ng-hide="exact" ng-click="modifyValue()">
         <span class="highlight5">Closest Color: {{nearestColor}}</span>
       </div>
+    </div>
+    <div id="snackbar">
+      {{toast}}
     </div>
   </body>
 </html>
